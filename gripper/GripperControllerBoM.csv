@@ -1,0 +1,12 @@
+Quantity,RefDes,Description,Manufacturer,Mfr #,Digikey #
+8,"H1, H2, H5, H6, H7, H8, H9, H10","Header 1x2, 0.1 inch, male, unshrouded",Generic/multiple,,609-4434-ND
+2,"H3, H4","Header 1x4, 0.1 inch, male, unshrouded",Generic/multiple,,609-3255-ND
+3,"C1, C2, C3","0.1 uF, 0603 capacitor",Generic/multiple,,399-1096-1-ND
+5,"R1, R4, R5, R6, R13","4.7K ohm, 0603 resistor",Generic/multiple,,P4.7KGCT-ND
+1,R2,"47 ohm, 0603 resistor",Generic/multiple,,P47GCT-ND
+1,R3,"47k ohm, 0603 resistor",Generic/multiple,,P47.0KHCT-ND
+7,"R7, R8, R9, R10, R11, R12, R14","10k ohm, 0603 resistor",Generic/multiple,,P10.0KHCT-ND
+2,"Q1, Q2",BSS138 N-channel MOSFET,Fairchild/ON Semi,BSS138,BSS138CT-ND
+1,U1,Teensy 3.x or LC microcontroller (with pins),PJRC Inc.,TEENSY32_PINS,1568-1231-ND
+1,U2,MCP6002 general purpose op-amp,Microchip,MCP6002T-I/SN,MCP6002T-I/SNCT-ND
+1,U3,REG113-5 5V regulator,Texas Instruments,REG113NA-5/3K,REG113NA-5/3KCT-ND
