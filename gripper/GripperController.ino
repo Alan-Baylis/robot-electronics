@@ -65,6 +65,7 @@ License:
 void setup(){
 	// Open serial port for commands and responses over USB
 	Serial.begin(115200);
+    Serial1.begin(9600);
 	// Start i2c for communication with range finder, then confirm communications with it
 	Wire.begin();
 	delay(100);
@@ -181,9 +182,9 @@ void releaseObject() {
 void initializeServo() {
 	// Perform the necessary tasks for a cold startup, or a recovery from error condition
 	HerkulexT.reboot(servoID); 
-	delay(500);
+	delay(1000);
 	HerkulexT.initialize();
-	delay(500);
+	delay(1000);
 	// On next loop, ensure servo moves to open jaw position
 	jawAngle = 0.0;
 	newJawAngle = openJawAngle;
@@ -415,6 +416,16 @@ void processSerialInput() {
 			inputStringComplete = true;
 			break;                          // Stop here even if more characters are in buffer
 		}
+	}
+    while (Serial1.available()) {
+        // Read and add the new character
+        char inChar = (char)Serial1.read(); 
+        inputString += inChar;
+        // if the incoming character is a newline, then the string is complete
+        if (inChar == '\n') {
+            inputStringComplete = true;
+            break;                          // Stop here even if more characters are in buffer
+        }
 	}       
 	// If a complete message is available, parse it, then clear the buffer before returning
 	if (inputStringComplete == true) {
@@ -551,6 +562,7 @@ void msgSend(String s, bool isComplete) {
 	outputString += s;                                               // Add current string to the output buffer
 	if (isComplete) {
 		Serial.println(outputString); 									// Print it out
+		Serial1.println(outputString);
 		outputString = "";                                               // Empty the buffer
 	}
 }
